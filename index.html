@@ -3,1553 +3,3033 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>CEZOO Prints</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
-
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
 
-html,body{
-    width:100%;
-    min-height:100%;
-    overflow-x:hidden;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#ffffff;
-}
 
-/* MAIN PAGE */
-.page{
-    width:100%;
-    min-height:auto;
-    position:relative;
-    overflow:hidden;
-    padding-bottom:28px;
-    background:linear-gradient(
-        180deg,
-        #139cff 0%,
-        #24a8ff 56%,
-        #8edaff 74%,
-        #ffffff 100%
-    );
-}
 
-/* WHITE CURVE BEHIND PRINTER */
-.page::after{
-    content:"";
-    position:absolute;
-    left:50%;
-    top:300px;
-    transform:translateX(-50%);
-    width:1550px;
-    height:850px;
-    background:#ffffff;
-    border-radius:50% 50% 0 0 / 18% 18% 0 0;
-    z-index:1;
-}
-
-/* NAVBAR */
-.navbar{
-    width:100%;
-    max-width:980px;
-    margin:0 auto;
-    padding:26px 18px 0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-    z-index:10;
-}
-
-.nav-text{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:13px;
-    color:rgba(255,255,255,.78);
-    font-size:15px;
-    font-weight:800;
-    letter-spacing:5px;
-    text-transform:uppercase;
-    text-shadow:0 2px 5px rgba(0,0,0,.12);
-}
-
-.nav-text span{
-    white-space:nowrap;
-}
-
-.nav-text span.star{
-    font-size:14px;
-    color:#ffffff;
-    opacity:.9;
-}
 
 /* HERO */
 .hero{
-    width:100%;
-    max-width:980px;
-    margin:0 auto;
-    padding:25px 20px 0;
-    text-align:center;
-    position:relative;
-    z-index:5;
+  height:520px;
+  background:linear-gradient(180deg,#078cff,#5bc3ff);
+  position:relative;
+  text-align:center;
+  color:white;
+  padding-top:90px;
 }
 
-.title-wrap{
-    width:max-content;
-    max-width:calc(100vw - 40px);
-    margin:0 auto;
-    position:relative;
-    z-index:10;
+.safe{
+  letter-spacing:5px;
+  font-size:14px;
+  font-weight:bold;
+  opacity:.85;
 }
 
-.title{
-    font-family:'Bungee', Arial, sans-serif;
-    color:#ffffff;
-    font-size:72px;
-    line-height:1;
-    letter-spacing:1px;
-    white-space:nowrap;
-    text-shadow:0 5px 14px rgba(0,0,0,.10);
+.logi{
+  margin-top:25px;
+  font-size:50px;
+  font-weight:900;
 }
 
-/* IN 4 MINS TAG */
-.time-tag{
-    position:absolute;
-    right:0;
-    top:100%;
-    transform:translateX(50%) rotate(-7deg);
-    background:#ffef75;
-    color:#111;
-    padding:7px 18px;
-    font-size:23px;
-    font-weight:800;
-    border-radius:4px;
-    box-shadow:0 5px 10px rgba(0,0,0,.13);
-    white-space:nowrap;
+.tag{
+  display:inline-block;
+  margin-top:8px;
+  background:#ffe76a;
+  color:#111;
+  padding:7px 20px;
+  font-size:20px;
+  font-weight:bold;
+  transform:rotate(-4deg);
 }
 
-.time-tag::before,
-.time-tag::after{
-    content:"";
-    position:absolute;
-    top:0;
-    width:10px;
-    height:100%;
-    background:#ffef75;
+/* WHITE TABLE CURVE */
+.table{
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:130%;
+  height:160px;
+  background:white;
+  border-radius:50% 50% 0 0;
 }
 
-.time-tag::before{
-    left:-6px;
-    clip-path:polygon(
-        100% 0,
-        0 15%,
-        100% 35%,
-        0 55%,
-        100% 75%,
-        0 100%,
-        100% 100%
-    );
+/* PRINTER IMAGE */
+.printer-box{
+  position:absolute;
+  left:50%;
+  bottom:75px;
+  transform:translateX(-50%);
+  width:290px;
+  z-index:3;
 }
 
-.time-tag::after{
-    right:-6px;
-    clip-path:polygon(
-        0 0,
-        100% 15%,
-        0 35%,
-        100% 55%,
-        0 75%,
-        100% 100%,
-        0 100%
-    );
+.printer-box img{
+  width:105%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  filter:drop-shadow(0 15px 22px rgba(0,0,0,.28));
 }
 
-/* PRINTER AREA */
-.printer-area{
-    width:100%;
-    max-width:720px;
-    margin:86px auto 0;
-    position:relative;
-    z-index:6;
-}
-
-.printer-img{
-    width:100%;
-    max-width:470px;
-    display:block;
-    margin:0 auto;
-    object-fit:contain;
-    position:relative;
-    z-index:6;
-    filter:drop-shadow(0 18px 22px rgba(0,0,0,.18));
-}
-
-/* SCISSOR DECORATION */
+/* DECOR */
 .scissor{
-    position:absolute;
-    left:9%;
-    bottom:18px;
-    width:105px;
-    height:42px;
-    z-index:7;
-    transform:rotate(-11deg);
+  position:absolute;
+  left:28px;
+  bottom:65px;
+  font-size:42px;
+  z-index:2;
+  transform:rotate(-15deg);
 }
 
-.scissor::before{
-    content:"✂";
-    position:absolute;
-    left:0;
-    top:-14px;
-    font-size:70px;
-    color:#168fe8;
+.paper{
+  position:absolute;
+  right:-10px;
+  bottom:85px;
+  width:80px;
+  height:58px;
+  background:white;
+  transform:rotate(18deg);
+  z-index:2;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
 }
 
-/* SMALL PAPER DECORATION */
-.paper-small{
-    position:absolute;
-    right:9%;
-    bottom:33px;
-    width:88px;
-    height:62px;
-    background:#ffffff;
-    border-radius:5px;
-    z-index:7;
-    transform:rotate(12deg);
-    box-shadow:0 7px 18px rgba(0,0,0,.12);
+.paper::after{
+  content:"";
+  position:absolute;
+  left:18px;
+  bottom:12px;
+  width:7px;
+  height:20px;
+  background:#ffc400;
+  box-shadow:15px -8px 0 #ffc400,30px -18px 0 #ffc400;
 }
 
-.paper-small span{
-    display:block;
-    width:58%;
-    height:5px;
-    margin:10px auto;
-    background:#f4c21d;
-    border-radius:20px;
+/* OFFER */
+.offer{
+  margin:-25px 18px 35px;
+  background:white;
+  border-radius:25px;
+  padding:25px 20px;
+  position:relative;
+  z-index:5;
+  box-shadow:0 8px 25px rgba(0,0,0,.12);
 }
 
-.paper-small span:nth-child(2){
-    width:72%;
+.offer h2{
+  font-size:20px;
+  color:#111;
+  margin-bottom:20px;
 }
 
-.paper-small span:nth-child(3){
-    width:48%;
+.offer h2 span{
+  border-bottom:4px solid #ffd91a;
 }
 
-/* BOTTOM WHITE CARD */
-.info-card{
-    width:92%;
-    max-width:520px;
-    margin:56px auto 0;
-    background:#ffffff;
-    border-radius:24px;
-    padding:18px 16px;
-    position:relative;
-    z-index:8;
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
-    text-align:center;
+.offer p{
+  font-size:13px;
+  color:#555;
+  margin:10px 0;
 }
 
-.free-text{
-    font-size:22px;
-    font-weight:900;
-    color:#0f172a;
-    margin-bottom:8px;
+.upload{
+  width:100%;
+  border:none;
+  background:#0758ff;
+  color:white;
+  padding:18px;
+  border-radius:18px;
+  margin-top:25px;
+  font-size:13px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.file-name{
+  text-align:center;
+  margin-top:12px!important;
+  font-size:14px!important;
+  color:#0758ff!important;
+  font-weight:bold;
 }
 
-.quality{
-    font-size:15px;
-    color:#334155;
-    font-weight:700;
-    line-height:1.6;
+.upload{
+  display:block;
+  text-align:center;
 }
 
-.upload-btn{
-    margin-top:15px;
-    width:100%;
-    height:50px;
-    border:none;
-    border-radius:16px;
-    background:#111827;
-    color:#ffffff;
-    font-size:16px;
-    font-weight:800;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.note{
+  margin-top:18px!important;
+  text-align:center;
+  font-size:12px!important;
+  color:#555;
+
+  white-space:nowrap;      /* always one line */
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
-.upload-btn:hover{
-    background:#000000;
+/* PROMISE */
+.promise-title{
+  text-align:center;
+  letter-spacing:5px;
+  color:#333;
+  font-size:20px;
+  margin-bottom:28px;
 }
 
-/* WE PROMISE SECTION */
+.promise-title::after{
+  content:"";
+  display:block;
+  width:120px;
+  height:3px;
+  background:#1e90ff;
+  margin:8px auto 0;
+  border-radius:20px;
+}
+
+/* PROMISE NEW DESIGN */
 .promise-section{
-    width:100%;
-    background:#ffffff;
-    padding:36px 18px 14px;
-    overflow:hidden;
+  padding:10px 20px 45px;
+  background:#fff;
+  position:relative;
 }
 
-.promise-heading{
-    text-align:center;
-    font-size:24px;
-    font-weight:900;
-    letter-spacing:7px;
-    color:#33333a;
-    position:relative;
-    margin-bottom:30px;
+.promise-title{
+  text-align:center;
+  letter-spacing:6px;
+  color:#333;
+  font-size:21px;
+  margin-bottom:35px;
+  font-weight:900;
 }
 
-.promise-heading::after{
-    content:"";
-    position:absolute;
-    left:50%;
-    bottom:-13px;
-    transform:translateX(-50%);
-    width:210px;
-    height:14px;
-    border-bottom:4px solid #3ca8ee;
-    border-radius:50%;
+.promise-title::after{
+  content:"";
+  display:block;
+  width:125px;
+  height:3px;
+  background:#1e90ff;
+  margin:9px auto 0;
+  border-radius:50%;
 }
 
-.promise-art{
-    width:100%;
-    max-width:730px;
-    height:405px;
-    margin:0 auto;
-    position:relative;
+.promise-board{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  position:relative;
 }
 
-.promise-note{
-    position:absolute;
-    background:linear-gradient(135deg,#fff06a,#fff59d);
-    box-shadow:0 10px 22px rgba(0,0,0,.10);
-    color:#222;
-    z-index:3;
+.sticky-card{
+  background:#ffed6b;
+  min-height:155px;
+  padding:22px 18px;
+  border-radius:4px;
+  position:relative;
+  box-shadow:0 12px 25px rgba(0,0,0,.10);
+  overflow:hidden;
 }
 
-.promise-note.square{
-    width:220px;
-    height:170px;
-    padding:28px 24px 20px;
+.sticky-card:nth-child(1)::before{
+  content:"";
+  position:absolute;
+  top:-5px;
+  right:28px;
+  width:42px;
+  height:18px;
+  background:#ff9f7a;
+  transform:rotate(8deg);
+  opacity:.9;
 }
 
-.promise-note.square::after{
-    content:"";
-    position:absolute;
-    right:0;
-    bottom:0;
-    width:58px;
-    height:58px;
-    background:linear-gradient(135deg,rgba(255,255,255,.65),rgba(230,210,68,.45));
-    clip-path:polygon(100% 0,0 100%,100% 100%);
+.sticky-card:nth-child(2){
+  transform:translateY(5px);
 }
 
-.note-safety{
-    left:65px;
-    top:30px;
+.sticky-card:nth-child(4){
+  transform:rotate(-2deg);
 }
 
-.note-security{
-    right:65px;
-    top:30px;
-}
-
-.note-tape{
-    position:absolute;
-    right:-20px;
-    top:10px;
-    width:48px;
-    height:20px;
-    background:#ff9877;
-    opacity:.85;
-    transform:rotate(10deg);
-    border-radius:2px;
+.sticky-card:nth-child(5){
+  transform:rotate(2deg);
 }
 
 .promise-icon{
-    width:46px;
-    height:46px;
-    border-radius:50%;
-    background:#f4d936;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:21px;
-    margin-bottom:12px;
+  width:42px;
+  height:42px;
+  background:#f4d82f;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  margin-bottom:18px;
 }
 
-.promise-note h3{
-    font-size:28px;
-    line-height:1;
-    margin-bottom:10px;
-    font-weight:900;
+.sticky-card h3{
+  font-size:22px;
+  color:#202020;
+  margin-bottom:10px;
 }
 
-.promise-note p{
-    font-size:19px;
-    line-height:1.18;
-    font-weight:700;
+.sticky-card p{
+  font-size:15px;
+  color:#333;
+  line-height:1.5;
 }
 
-.promise-note.long{
-    width:380px;
-    min-height:108px;
-    left:185px;
-    top:260px;
-    padding:27px 28px 20px 98px;
-    transform:rotate(-7deg);
+.fold{
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:48px;
+  height:48px;
+  background:linear-gradient(135deg,#f8dc45 50%,#fff8b8 50%);
 }
 
-.promise-note.long .promise-icon{
-    position:absolute;
-    left:28px;
-    top:30px;
-    margin:0;
+/* WIDE NO PEEK POLICY CARD */
+.wide-policy-card{
+  grid-column:1/3;
+  background:#ffed5e;
+  min-height:105px;
+  padding:22px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  border-radius:4px;
+  transform:rotate(-5deg);
+  box-shadow:0 12px 25px rgba(0,0,0,.10);
+  margin:8px 25px 5px;
 }
 
-.promise-note.long h3{
-    font-size:26px;
-    margin-bottom:6px;
+.policy-icon{
+  width:46px;
+  height:46px;
+  background:#f4d82f;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  flex-shrink:0;
 }
 
-.promise-note.long p{
-    font-size:19px;
+.wide-policy-card h3{
+  font-size:21px;
+  color:#202020;
+  margin-bottom:6px;
 }
 
-.deco-scissor{
-    position:absolute;
-    left:5px;
-    top:195px;
-    font-size:112px;
-    color:#168fe8;
-    transform:rotate(-20deg);
-    z-index:2;
+.wide-policy-card p{
+  font-size:15px;
+  color:#333;
+  line-height:1.4;
 }
 
-.deco-tape-round{
-    position:absolute;
-    left:45px;
-    bottom:36px;
-    width:76px;
-    height:76px;
-    border-radius:50%;
-    border:16px solid #f5bf45;
-    background:#ffffff;
-    z-index:2;
+/* PC VIEW FOR PROMISE */
+@media(min-width:900px){
+  .promise-section{
+    padding:25px 70px 65px;
+  }
+
+  .promise-board{
+    grid-template-columns:repeat(4,1fr);
+    align-items:start;
+  }
+
+  .sticky-card{
+    min-height:180px;
+  }
+
+  .wide-policy-card{
+    grid-column:2/4;
+    margin:10px 0;
+  }
+}
+.services{
+  padding:0 18px 135px;
 }
 
-.deco-photo{
-    position:absolute;
-    right:28px;
-    top:180px;
-    width:85px;
-    height:100px;
-    background:#dfe3ea;
-    border-radius:4px;
-    transform:rotate(13deg);
-    z-index:2;
-    box-shadow:0 8px 18px rgba(0,0,0,.08);
+.services-head{
+  text-align:center;
+  margin-bottom:22px;
 }
 
-.deco-photo::before{
-    content:"";
-    position:absolute;
-    left:12px;
-    top:12px;
-    right:12px;
-    bottom:12px;
-    background:#ffffff;
+.services-head span{
+  display:inline-block;
+  background:#eaf2ff;
+  color:#0758ff;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+  padding:7px 14px;
+  border-radius:20px;
+  margin-bottom:10px;
 }
 
-.deco-photo::after{
-    content:"";
-    position:absolute;
-    left:22px;
-    bottom:22px;
-    width:45px;
-    height:34px;
-    background:#ff9b78;
-    clip-path:polygon(0 100%,45% 35%,70% 60%,100% 30%,100% 100%);
+.services-head h2{
+  font-size:28px;
+  color:#101828;
+  margin-bottom:8px;
 }
 
-.blue-dot{
-    position:absolute;
-    right:19px;
-    top:44px;
-    width:28px;
-    height:28px;
-    background:#0b8ff1;
-    border-radius:50%;
-    z-index:3;
+.services-head p{
+  font-size:14px;
+  color:#667085;
+  line-height:1.5;
 }
 
-.spark{
-    position:absolute;
-    right:145px;
-    bottom:48px;
-    width:48px;
-    height:42px;
-    z-index:1;
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
 }
 
-.spark span{
-    position:absolute;
-    width:4px;
-    height:22px;
-    background:#f6c037;
-    border-radius:10px;
+.service-box{
+  background:linear-gradient(145deg,#ffffff,#f3f8ff);
+  border:1px solid #e4efff;
+  border-radius:22px;
+  padding:17px 13px;
+  min-height:190px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 10px 24px rgba(7,88,255,.08);
 }
 
-.spark span:nth-child(1){
-    left:0;
-    top:12px;
-    transform:rotate(-60deg);
+.service-box::before{
+  content:"";
+  position:absolute;
+  top:-35px;
+  right:-35px;
+  width:85px;
+  height:85px;
+  background:rgba(7,88,255,.08);
+  border-radius:50%;
 }
 
-.spark span:nth-child(2){
-    left:22px;
-    top:4px;
-    transform:rotate(-10deg);
+.service-icon{
+  width:52px;
+  height:52px;
+  background:linear-gradient(135deg,#0758ff,#39b9ff);
+  color:white;
+  border-radius:17px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  margin-bottom:14px;
+  box-shadow:0 8px 18px rgba(7,88,255,.25);
+  position:relative;
+  z-index:2;
 }
 
-.spark span:nth-child(3){
-    left:42px;
-    top:16px;
-    transform:rotate(45deg);
+.service-box h3{
+  font-size:17px;
+  color:#101828;
+  margin-bottom:7px;
+  position:relative;
+  z-index:2;
 }
 
+.service-box p{
+  font-size:12.5px;
+  color:#667085;
+  line-height:1.45;
+  margin-bottom:14px;
+  position:relative;
+  z-index:2;
+}
+
+.service-box span{
+  position:absolute;
+  left:13px;
+  bottom:14px;
+  background:#eef5ff;
+  color:#0758ff;
+  font-size:12px;
+  font-weight:800;
+  padding:7px 10px;
+  border-radius:14px;
+}
 /* FAQ SECTION */
 .faq-section{
-    width:100%;
-    max-width:950px;
-    margin:0 auto;
-    padding:6px 28px 26px;
-    background:#ffffff;
+  padding:0 18px 135px;
 }
 
-.faq-title{
-    font-size:48px;
-    font-weight:900;
-    color:#111827;
-    margin-bottom:18px;
+.faq-head{
+  text-align:center;
+  margin-bottom:22px;
+}
+
+.faq-head span{
+  display:inline-block;
+  background:#fff7cc;
+  color:#9a6b00;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+  padding:7px 14px;
+  border-radius:20px;
+  margin-bottom:10px;
+}
+
+.faq-head h2{
+  font-size:34px;
+  color:#101828;
+  margin-bottom:8px;
+}
+
+.faq-head p{
+  font-size:14px;
+  color:#667085;
+}
+
+.faq-list{
+  display:flex;
+  flex-direction:column;
+  gap:13px;
 }
 
 .faq-item{
-    border-bottom:1.5px solid #d1d5db;
+  background:#fff;
+  border:1px solid #e5eaf3;
+  border-radius:14px;
+  padding:0 14px;
+
+  margin:0 10px 10px;   /* left right gap + bottom gap */
+
+  overflow:hidden;
+  box-shadow:0 3px 10px rgba(0,0,0,.05);
 }
 
 .faq-item summary{
-    list-style:none;
-    cursor:pointer;
-    padding:22px 0;
-    font-size:24px;
-    font-weight:900;
-    color:#2b2f38;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:18px;
+  list-style:none;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+
+  padding:14px 0;
+  font-size:12px;
+  font-weight:600;
+  color:#101828;
+  line-height:1.35;
 }
 
 .faq-item summary::-webkit-details-marker{
-    display:none;
+  display:none;
 }
 
 .faq-item summary::after{
-    content:"";
-    width:15px;
-    height:15px;
-    border-right:3px solid #0066ff;
-    border-bottom:3px solid #0066ff;
-    transform:rotate(45deg);
-    transition:.25s ease;
-    flex-shrink:0;
+  content:"›";
+  color:#111;
+  font-size:18px;
+  font-weight:400;
+  line-height:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:18px;
+  height:18px;
+  transition:transform .25s ease;
+  flex-shrink:0;
 }
 
 .faq-item[open] summary::after{
-    transform:rotate(-135deg);
+  transform:rotate(90deg);
 }
 
-.faq-answer{
-    padding:0 0 22px;
-    font-size:17px;
-    line-height:1.55;
-    color:#475569;
-    font-weight:600;
+.faq-item p{
+  padding:0 0 14px;
+  font-size:13px;
+  color:#667085;
+  line-height:1.5;
 }
 
-/* CERTAIN THINGS SECTION */
-.paper-section{
-    width:100%;
-    background:#f2f3f8;
-    padding:0 0 0;
-    overflow:hidden;
+/* PC FAQ VIEW */
+@media(min-width:900px){
+  .faq-section{
+    padding:0 55px 150px;
+  }
+
+  .faq-list{
+    max-width:850px;
+    margin:auto;
+  }
+
+  .faq-head h2{
+    font-size:42px;
+  }
+
+  .faq-item summary{
+    font-size:19px;
+  }
+
+  .faq-item p{
+    font-size:16px;
+  }
+}
+/* CART BAR */
+.cart{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:88%;
+  max-width:390px;
+  background:#0758ff;
+  color:white;
+  border-radius:15px;
+  padding:14px 16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 8px 25px rgba(0,0,0,.25);
+  z-index:20;
 }
 
-.paper-poster{
-    width:100%;
-    max-width:950px;
-    min-height:470px;
-    margin:0 auto;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,.9) 0 12%, transparent 13%),
-        radial-gradient(circle at 80% 30%, rgba(255,255,255,.75) 0 10%, transparent 11%),
-        linear-gradient(135deg,#f7f8fc 0%,#e9ebf3 100%);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-    text-align:center;
-    padding:55px 20px 58px;
+.cart b{
+  color:#6fffb3;
 }
 
-.paper-poster::before{
-    content:"";
-    position:absolute;
-    inset:35px;
-    background:
-        linear-gradient(#dfe2eb 1px, transparent 1px),
-        linear-gradient(90deg,#dfe2eb 1px, transparent 1px);
-    background-size:70px 70px;
-    opacity:.35;
+.cart small{
+  display:block;
+  color:white;
 }
 
-.ctrl-box{
-    width:160px;
-    height:125px;
-    background:#2c2f35;
-    border-radius:18px;
-    box-shadow:0 18px 32px rgba(0,0,0,.22);
-    position:relative;
-    z-index:2;
-    transform:rotate(-8deg);
-    margin-bottom:42px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-}
+@media(max-width:360px){
+  .logi{
+    font-size:42px;
+  }
 
-.ctrl-box::before{
-    content:"";
-    position:absolute;
-    top:-74px;
-    left:50%;
-    transform:translateX(-50%);
-    width:18px;
+  .printer-box{
+    width:255px;
+  }
+
+  .offer h2{
+    font-size:22px;
+  }
+}
+/* ================= PC VIEW ================= */
+@media(min-width:900px){
+
+  
+
+  .app{
+    max-width:1180px;
+    border-radius:35px;
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
+  }
+
+  .hero{
+    height:560px;
+    padding-top:75px;
+    border-radius:35px 35px 0 0;
+  }
+
+  .safe{
+    font-size:16px;
+    letter-spacing:7px;
+  }
+
+  .logi{
+    font-size:82px;
+  }
+
+  .tag{
+    font-size:24px;
+    padding:9px 28px;
+  }
+
+  .printer-box{
+    width:470px;
+    bottom:55px;
+  }
+
+  .scissor{
+    left:120px;
+    bottom:80px;
+    font-size:55px;
+  }
+
+  .paper{
+    right:120px;
+    bottom:105px;
+    width:110px;
     height:80px;
-    background:#22262c;
-    border-radius:12px 12px 0 0;
-}
+  }
 
-.ctrl-box::after{
-    content:"CEZOO";
-    position:absolute;
-    bottom:12px;
-    left:50%;
-    transform:translateX(-50%);
-    color:#ffffff;
-    font-size:13px;
-    font-weight:900;
-    border:2px solid rgba(255,255,255,.45);
-    padding:3px 12px;
-    border-radius:12px;
-}
+  .offer{
+    width:85%;
+    margin:-35px auto 45px;
+    padding:35px 45px;
+  }
 
-.key{
-    width:58px;
-    height:58px;
-    background:#f7f7f7;
-    border-radius:8px;
-    box-shadow:inset 0 -5px 0 rgba(0,0,0,.12);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:27px;
-    font-weight:900;
-    color:#343941;
-}
+  .offer h2{
+    font-size:36px;
+  }
 
-.paper-title{
-    position:relative;
-    z-index:2;
-    font-size:44px;
-    line-height:1.05;
-    font-weight:900;
-    color:#777b86;
-    letter-spacing:-1px;
-}
-
-.paper-title span{
-    display:block;
-    font-size:66px;
-    color:#6f737d;
-}
-
-.paper-sub{
-    position:relative;
-    z-index:2;
-    margin-top:22px;
+  .offer p{
     font-size:20px;
-    font-weight:800;
-    color:#8b8f99;
-}
+  }
 
-.paper-sub span{
-    color:#0066ff;
+  .upload{
     font-size:22px;
-}
-.offer-line{
-    margin-top:14px;        /* gap between Upload Document and offer line */
-    font-size:12px;
-    font-weight:700;
-    color:#64748b;
-    line-height:1.4;
-}
-
-/* MOBILE VIEW */
-@media(max-width:600px){
-
-    .page{
-        padding-bottom:24px;
-        background:linear-gradient(
-            180deg,
-            #129cff 0%,
-            #22a7ff 56%,
-            #9fddff 74%,
-            #ffffff 100%
-        );
-    }
-
-    .page::after{
-        top:270px;
-        width:820px;
-        height:760px;
-        border-radius:50% 50% 0 0 / 16% 16% 0 0;
-    }
-
-    .navbar{
-        padding:22px 10px 0;
-    }
-
-    .nav-text{
-        font-size:12px;
-        letter-spacing:3px;
-        gap:8px;
-    }
-
-    .hero{
-        padding-top:28px;
-    }
-
-    .title{
-        font-size:44px;
-        letter-spacing:.5px;
-    }
-
-    .time-tag{
-        transform:translateX(18%) rotate(-7deg);
-        font-size:17px;
-        padding:6px 13px;
-    }
-
-    .printer-area{
-        margin-top:86px;
-    }
-
-    .printer-img{
-        max-width:330px;
-    }
-
-    .scissor{
-        left:4%;
-        bottom:20px;
-        transform:rotate(-13deg) scale(.75);
-    }
-
-    .paper-small{
-        right:3%;
-        bottom:32px;
-        transform:rotate(14deg) scale(.78);
-    }
-
-    .info-card{
-        width:90%;
-        margin-top:48px;
-        border-radius:20px;
-        padding:15px 13px;
-    }
-
-    .free-text{
-        font-size:19px;
-    }
-
-    .quality{
-        font-size:13px;
-    }
-
-    .upload-btn{
-        height:47px;
-        font-size:15px;
-    }
-    .offer-line{
-    margin-top:12px;
-    font-size:11px;
-    }
-
-    .promise-section{
-        padding:34px 12px 10px;
-    }
-
-    .promise-heading{
-        font-size:21px;
-        letter-spacing:6px;
-        margin-bottom:24px;
-    }
-
-    .promise-heading::after{
-        width:190px;
-        bottom:-12px;
-    }
-
-    .promise-art{
-        max-width:390px;
-        height:390px;
-    }
-
-    .promise-note.square{
-        width:43%;
-        height:135px;
-        padding:20px 13px 12px;
-    }
-
-    .note-safety{
-        left:24px;
-        top:28px;
-    }
-
-    .note-security{
-        right:24px;
-        top:28px;
-    }
-
-    .note-tape{
-        width:42px;
-        height:18px;
-        right:-18px;
-        top:8px;
-    }
-
-    .promise-icon{
-        width:38px;
-        height:38px;
-        font-size:18px;
-        margin-bottom:8px;
-    }
-
-    .promise-note h3{
-        font-size:23px;
-        margin-bottom:7px;
-    }
-
-    .promise-note p{
-        font-size:15px;
-        line-height:1.16;
-    }
-
-    .promise-note.long{
-        width:292px;
-        min-height:90px;
-        left:50%;
-        top:230px;
-        padding:20px 18px 15px 78px;
-        transform:translateX(-50%) rotate(-7deg);
-    }
-
-    .promise-note.long .promise-icon{
-        left:21px;
-        top:24px;
-    }
-
-    .promise-note.long h3{
-        font-size:22px;
-        margin-bottom:4px;
-    }
-
-    .promise-note.long p{
-        font-size:15px;
-    }
-
-    .deco-scissor{
-        left:-8px;
-        top:178px;
-        font-size:90px;
-    }
-
-    .deco-tape-round{
-        left:22px;
-        bottom:48px;
-        width:60px;
-        height:60px;
-        border-width:13px;
-    }
-
-    .deco-photo{
-        right:18px;
-        top:175px;
-        width:70px;
-        height:84px;
-    }
-
-    .blue-dot{
-        width:23px;
-        height:23px;
-        right:15px;
-        top:38px;
-    }
-
-    .spark{
-        right:52px;
-        bottom:82px;
-        transform:scale(.68);
-    }
-
-    .faq-section{
-        padding:2px 28px 24px;
-    }
-
-    .faq-title{
-        font-size:44px;
-        margin-bottom:12px;
-    }
-
-    .faq-item summary{
-        font-size:22px;
-        line-height:1.2;
-        padding:21px 0;
-    }
-
-    .faq-answer{
-        font-size:15px;
-        padding-bottom:20px;
-    }
-
-    .paper-poster{
-        min-height:425px;
-        padding:45px 18px 48px;
-    }
-
-    .ctrl-box{
-        width:125px;
-        height:100px;
-        border-radius:14px;
-        margin-bottom:36px;
-    }
-
-    .ctrl-box::before{
-        height:62px;
-        top:-58px;
-        width:14px;
-    }
-
-    .key{
-        width:46px;
-        height:46px;
-        font-size:22px;
-    }
-
-    .ctrl-box::after{
-        font-size:10px;
-        padding:3px 10px;
-    }
-
-    .paper-title{
-        font-size:34px;
-    }
-
-    .paper-title span{
-        font-size:50px;
-    }
-
-    .paper-sub{
-        font-size:16px;
-    }
-
-    .free-delivery-strip{
-        font-size:18px;
-        padding:15px 12px;
-    }
-}
-
-/* SMALL MOBILE */
-@media(max-width:380px){
-
-    .page::after{
-        top:255px;
-        width:720px;
-        height:730px;
-    }
-
-    .nav-text{
-        font-size:10px;
-        letter-spacing:2px;
-        gap:7px;
-    }
-
-    .title{
-        font-size:38px;
-    }
-
-    .time-tag{
-        transform:translateX(10%) rotate(-7deg);
-        font-size:15px;
-    }
-
-    .printer-img{
-        max-width:295px;
-    }
-
-    .note-safety{
-        left:16px;
-    }
-
-    .note-security{
-        right:16px;
-    }
-
-    .promise-note.square{
-        width:44%;
-        padding-left:10px;
-        padding-right:8px;
-    }
-
-    .promise-note h3{
-        font-size:21px;
-    }
-
-    .promise-note p{
-        font-size:14px;
-    }
-
-    .promise-note.long{
-        width:270px;
-    }
-
-    .faq-section{
-        padding-left:22px;
-        padding-right:22px;
-    }
-
-    .faq-item summary{
-        font-size:20px;
-    }
-
-    .paper-title{
-        font-size:30px;
-    }
-
-    .paper-title span{
-        font-size:44px;
-    }
-}
-/* FINAL UPLOAD BUTTON + POPUP FIX */
-.upload-area{
-    width:100%;
-}
-
-/* REDUCED UPLOAD BUTTON SIZE */
-.upload-btn{
-    margin:15px auto 0;
-    width:68%;
-    max-width:270px;
-    height:42px;
-    border:none;
-    border-radius:14px;
-    background:#111827;
-    color:#ffffff;
+    padding:20px;
+  }
+
+  .promise-title{
+    font-size:26px;
+    margin-top:10px;
+  }
+
+  .promise-grid{
+    grid-template-columns:repeat(4,1fr);
+    padding:0 55px 55px;
+  }
+
+  .promise-card{
+    min-height:190px;
+    padding:25px 20px;
+  }
+
+  .promise-card h3{
+    font-size:20px;
+  }
+
+  .promise-card p{
     font-size:14px;
-    font-weight:900;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
+  }
 
-.upload-btn:hover{
-    background:#000000;
-}
+  .services{
+    padding:0 55px 150px;
+  }
 
-.offer-note{
-    margin-top:14px;
-    font-size:12px;
-    font-weight:700;
-    color:#64748b;
-    line-height:1.4;
-}
+  .services-head h2{
+    font-size:38px;
+  }
 
-/* BOTTOM UPLOAD POPUP */
-.upload-popup{
-    position:fixed;
-    left:50%;
-    bottom:20px;
-    transform:translateX(-50%) translateY(140%);
-    width:92%;
-    max-width:430px;
-    background:#ffffff;
-    border-radius:22px;
-    padding:16px;
-    z-index:99999;
-    box-shadow:0 12px 35px rgba(0,0,0,.25);
-    border:1px solid #e5e7eb;
-    transition:.35s ease;
-}
+  .services-head p{
+    font-size:16px;
+  }
 
-.upload-popup.show{
-    transform:translateX(-50%) translateY(0);
-}
+  .services-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
 
-.popup-head{
-    display:flex;
-    align-items:flex-start;
-    justify-content:space-between;
-    gap:12px;
-}
+  .service-box{
+    min-height:220px;
+    padding:25px;
+  }
 
-.popup-head h4{
-    font-size:17px;
-    font-weight:900;
-    color:#111827;
-    margin-bottom:4px;
-}
+  .service-icon{
+    width:65px;
+    height:65px;
+    font-size:34px;
+  }
 
-.popup-head p{
-    font-size:13px;
-    font-weight:700;
-    color:#64748b;
-}
-
-.popup-close{
-    width:30px;
-    height:30px;
-    border:none;
-    border-radius:50%;
-    background:#f1f5f9;
-    color:#111827;
+  .service-box h3{
     font-size:22px;
-    line-height:1;
-    cursor:pointer;
+  }
+
+  .service-box p{
+    font-size:15px;
+  }
+
+  .service-box span{
+    left:25px;
+    bottom:22px;
+    font-size:14px;
+  }
+
+  .cart{
+    max-width:900px;
+    width:80%;
+    padding:18px 25px;
+    font-size:20px;
+  }
+}
+/*==============================
+UPLOAD POPUP - CENTER CARD WITH 4 ROUNDED CORNERS
+==============================*/
+
+body.popup-open{
+  overflow:hidden;
 }
 
-.progress-box{
-    width:100%;
-    height:9px;
-    background:#e5e7eb;
-    border-radius:50px;
-    overflow:hidden;
-    margin-top:15px;
+.upload-popup{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100dvh;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:16px;
+  z-index:999999;
+  overflow:hidden;
 }
 
-.progress-line{
-    width:0%;
-    height:100%;
-    background:#0066ff;
-    border-radius:50px;
-    transition:.12s linear;
+.upload-popup.active{
+  display:flex;
+}
+
+/* Dark Background */
+.popup-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  backdrop-filter:blur(2px);
+}
+
+/* Center Popup Card */
+.popup-sheet{
+  position:relative;
+  width:100%;
+  max-width:430px;
+  max-height:calc(100dvh - 32px);
+  background:#fff;
+  border-radius:32px;
+  padding:30px 24px 24px;
+  text-align:center;
+  animation:popupZoom .28s ease;
+  z-index:2;
+  overflow:hidden;
+  box-shadow:0 18px 45px rgba(0,0,0,.25);
+}
+
+@keyframes popupZoom{
+  from{
+    opacity:0;
+    transform:scale(.92);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+/* Close Button inside popup */
+.popup-close{
+  position:absolute;
+  right:14px;
+  top:14px;
+  width:40px;
+  height:40px;
+  border:none;
+  border-radius:50%;
+  background:#f1f3f6;
+  color:#111;
+  font-size:24px;
+  line-height:40px;
+  cursor:pointer;
+}
+
+/* Heading */
+.popup-sheet h2{
+  font-size:26px;
+  font-weight:800;
+  color:#111;
+  margin:18px 42px 6px;
+}
+
+.popup-subtitle{
+  font-size:16px;
+  color:#777;
+  margin-bottom:18px;
+}
+
+/* Scanner */
+.scanner-area{
+  display:flex;
+  justify-content:center;
+  margin-bottom:18px;
+}
+
+.paper-document{
+  width:118px;
+  height:145px;
+  background:#fff;
+  border-radius:16px;
+  position:relative;
+  overflow:hidden;
+  border:2px solid #ececec;
+  box-shadow:0 12px 25px rgba(0,0,0,.12);
+}
+
+.paper-header{
+  height:22px;
+  background:#0b6cff;
+}
+
+.paper-line{
+  width:72%;
+  height:7px;
+  background:#dddddd;
+  border-radius:20px;
+  margin:12px auto;
+}
+
+.paper-line.short{
+  width:46%;
+}
+
+.scanner-bar{
+  position:absolute;
+  left:0;
+  top:30px;
+  width:100%;
+  height:6px;
+  background:#0b6cff;
+  box-shadow:0 0 20px #0b6cff;
+}
+
+/* Progress */
+.progress-wrap{
+  width:100%;
+  height:10px;
+  background:#ebebeb;
+  border-radius:50px;
+  overflow:hidden;
+  margin-top:8px;
+}
+
+.progress-bar{
+  width:0;
+  height:100%;
+  background:#0b6cff;
+  border-radius:50px;
+  transition:.2s;
 }
 
 .progress-percent{
-    margin-top:9px;
-    font-size:13px;
-    font-weight:900;
-    color:#111827;
-    text-align:right;
+  margin-top:9px;
+  font-size:15px;
+  font-weight:700;
+  color:#0b6cff;
 }
 
-.reupload-btn{
-    width:100%;
-    height:42px;
-    margin-top:13px;
-    border:none;
-    border-radius:13px;
-    background:#ef4444;
-    color:#ffffff;
-    font-size:15px;
-    font-weight:900;
-    cursor:pointer;
-    display:none;
+.popup-status{
+  margin-top:12px;
+  font-size:14px;
+  color:#777;
+  line-height:1.4;
 }
 
-/* SUCCESS POPUP */
-.upload-popup.success .progress-line{
-    background:#16a34a;
+/* Cancel */
+.cancel-upload-btn{
+  width:100%;
+  height:46px;
+  margin-top:18px;
+  border:none;
+  background:#eef4ff;
+  border-radius:16px;
+  font-size:16px;
+  font-weight:700;
+  color:#0b6cff;
+  cursor:pointer;
 }
 
-.upload-popup.success #popupTitle{
-    color:#16a34a;
+/* Success */
+.popup-sheet.success .scanner-area{
+  display:flex;
 }
 
-/* ERROR POPUP */
-.upload-popup.error .progress-line{
-    background:#ef4444;
+.popup-sheet.success .progress-wrap,
+.popup-sheet.success .progress-percent{
+  display:none;
 }
 
-.upload-popup.error #popupTitle{
-    color:#ef4444;
-}
-
-/* MOBILE UPLOAD FIX */
+/* Small Mobile */
 @media(max-width:600px){
 
-    .upload-btn{
-        width:72%;
-        max-width:240px;
-        height:40px;
-        font-size:13px;
-        border-radius:13px;
-    }
+  .upload-popup{
+    padding:14px;
+  }
 
-    .offer-note{
-        margin-top:13px;
-        font-size:11px;
-    }
+  .popup-sheet{
+    width:100%;
+    max-width:360px;
+    border-radius:28px;
+    padding:24px 18px 18px;
+  }
 
-    .upload-popup{
-        width:90%;
-        bottom:18px;
-        border-radius:20px;
-        padding:15px;
-    }
+  .popup-close{
+    width:36px;
+    height:36px;
+    font-size:22px;
+    line-height:36px;
+    right:12px;
+    top:12px;
+  }
 
-    .popup-head h4{
-        font-size:16px;
-    }
+  .popup-sheet h2{
+    font-size:21px;
+    margin:16px 38px 5px;
+  }
 
-    .popup-head p{
-        font-size:12px;
-    }
+  .popup-subtitle{
+    font-size:14px;
+    margin-bottom:14px;
+  }
 
-    .reupload-btn{
-        height:40px;
-        font-size:14px;
-    }
+  .scanner-area{
+    margin-bottom:14px;
+  }
+
+  .paper-document{
+    width:98px;
+    height:125px;
+  }
+
+  .paper-line{
+    height:6px;
+    margin:10px auto;
+  }
+
+  .progress-wrap{
+    height:8px;
+  }
+
+  .progress-percent{
+    font-size:14px;
+  }
+
+  .popup-status{
+    font-size:13px;
+    margin-top:10px;
+  }
+
+  .cancel-upload-btn{
+    height:42px;
+    margin-top:14px;
+    font-size:15px;
+  }
+}
+
+/* Very Small Mobile Height */
+@media(max-height:620px){
+
+  .popup-sheet{
+    padding:18px 16px 14px;
+    border-radius:24px;
+  }
+
+  .popup-sheet h2{
+    font-size:19px;
+    margin-top:12px;
+  }
+
+  .popup-subtitle{
+    margin-bottom:10px;
+  }
+
+  .paper-document{
+    width:86px;
+    height:108px;
+  }
+
+  .paper-line{
+    margin:8px auto;
+  }
+
+  .cancel-upload-btn{
+    height:38px;
+    margin-top:10px;
+  }
+}
+/* =====================================
+   FINAL FIX
+   MOBILE NO SIDE CUTTING
+   POPUP ONLY TOP 2 ROUNDED CORNERS
+===================================== */
+
+@media(max-width:600px){
+
+  html,
+  body{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    padding:0;
+    overflow-x:hidden!important;
+  }
+
+  body.popup-open{
+    overflow:hidden!important;
+  }
+
+  .app{
+    width:100%;
+    max-width:100vw;
+    overflow-x:hidden!important;
+  }
+
+  .hero,
+  .promise-section,
+  .faq-head,
+  .faq-list{
+    width:100%;
+    max-width:100vw;
+    overflow:hidden;
+  }
+
+  .offer{
+    margin:-25px 14px 35px!important;
+    overflow:visible!important;
+  }
+
+  .table{
+    width:100%!important;
+    left:0!important;
+    transform:none!important;
+  }
+
+  .printer-box{
+    width:270px!important;
+  }
+
+  .printer-box img{
+    width:100%!important;
+  }
+
+  .paper{
+    right:8px!important;
+  }
+
+  .wide-policy-card{
+    transform:none!important;
+    margin:0!important;
+    width:100%!important;
+    max-width:100%!important;
+    border-radius:16px!important;
+  }
+
+  /* BOTTOM POPUP - ONLY TOP 2 CORNERS */
+  .upload-popup{
+    position:fixed!important;
+    inset:0!important;
+    width:100vw!important;
+    height:100dvh!important;
+    display:none;
+    align-items:flex-end!important;
+    justify-content:center!important;
+    padding:0!important;
+    overflow:hidden!important;
+    z-index:999999!important;
+  }
+
+  .upload-popup.active{
+    display:flex!important;
+  }
+
+  .popup-overlay{
+    position:fixed!important;
+    inset:0!important;
+    background:rgba(0,0,0,.45)!important;
+  }
+
+  .popup-sheet{
+    position:relative!important;
+    width:100%!important;
+    max-width:100%!important;
+    max-height:92dvh!important;
+    margin:0!important;
+    background:#fff!important;
+
+    /* ONLY TOP 2 ROUNDED CORNERS */
+    border-radius:32px 32px 0 0!important;
+
+    padding:24px 18px 18px!important;
+    overflow:hidden!important;
+    animation:popupUp .32s ease!important;
+    box-shadow:0 -12px 35px rgba(0,0,0,.22)!important;
+  }
+
+  .popup-close{
+    position:absolute!important;
+    right:14px!important;
+    top:14px!important;
+    left:auto!important;
+    transform:none!important;
+    width:36px!important;
+    height:36px!important;
+    border-radius:50%!important;
+    background:#f1f3f6!important;
+    color:#111!important;
+    font-size:22px!important;
+    line-height:36px!important;
+    box-shadow:none!important;
+  }
+
+  .popup-sheet h2{
+    font-size:21px!important;
+    margin:18px 42px 5px!important;
+  }
+
+  .popup-subtitle{
+    font-size:14px!important;
+    margin-bottom:14px!important;
+  }
+
+  .paper-document{
+    width:96px!important;
+    height:122px!important;
+  }
+
+  .progress-wrap{
+    height:8px!important;
+  }
+
+  .progress-percent{
+    font-size:14px!important;
+  }
+
+  .popup-status{
+    font-size:13px!important;
+  }
+
+  .cancel-upload-btn{
+    height:42px!important;
+    margin-top:14px!important;
+    font-size:15px!important;
+    border-radius:14px!important;
+  }
+}
+/* =====================================
+   CUSTOMIZE PRINT PAGE
+===================================== */
+
+.customize-page{
+  display:none;
+  width:100%;
+  min-height:100vh;
+  background:#f4f5f8;
+  padding-bottom:40px;
+}
+
+.customize-page.active{
+  display:block;
+}
+
+/* Navbar */
+.customize-nav{
+  width:100%;
+  height:72px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
+
+.customize-close{
+  width:38px;
+  height:38px;
+  border:none;
+  background:#f1f3f6;
+  border-radius:50%;
+  font-size:22px;
+  font-weight:800;
+  cursor:pointer;
+  color:#111;
+}
+
+.customize-nav h2{
+  flex:1;
+  margin-left:12px;
+  font-size:22px;
+  font-weight:800;
+  color:#111;
+}
+
+.customize-add-doc{
+  background:#eaf1ff;
+  color:#0758ff;
+  padding:11px 14px;
+  border-radius:14px;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+/* PDF Preview */
+.pdf-preview-section{
+  padding:28px 16px 18px;
+  display:flex;
+  justify-content:center;
+}
+
+.pdf-preview-card{
+  width:100%;
+  max-width:330px;
+  min-height:430px;
+  background:#fff;
+  border-radius:24px;
+  padding:18px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 28px rgba(0,0,0,.12);
+}
+
+#pdfCanvasPreview{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:14px;
+  background:#f2f2f2;
+  box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.preview-delete{
+  position:absolute;
+  right:-8px;
+  top:-8px;
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:#fff;
+  color:#ff2d55;
+  font-size:20px;
+  cursor:pointer;
+  box-shadow:0 5px 15px rgba(0,0,0,.18);
+  z-index:5;
+}
+
+.document-info-pill{
+  position:absolute;
+  bottom:16px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,.72);
+  color:#fff;
+  padding:8px 16px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+/* Copies Box */
+.copies-box{
+  background:#fff;
+  margin:0 16px;
+  border-radius:24px;
+  padding:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+}
+
+.copies-box h3{
+  font-size:21px;
+  color:#111;
+  margin-bottom:5px;
+}
+
+.copies-box p{
+  font-size:13px;
+  color:#666;
+  line-height:1.4;
+  word-break:break-word;
+}
+
+.copies-counter{
+  display:flex;
+  align-items:center;
+  border:2px solid #0758ff;
+  border-radius:16px;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.copies-counter button{
+  width:42px;
+  height:42px;
+  border:none;
+  background:#fff;
+  color:#0758ff;
+  font-size:26px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.copies-counter span{
+  width:42px;
+  text-align:center;
+  font-size:20px;
+  font-weight:900;
+  color:#111;
+}
+
+/* PC View */
+@media(min-width:900px){
+
+  .customize-page{
+    max-width:1180px;
+    margin:auto;
+  }
+
+  .customize-nav{
+    border-radius:0;
+    padding:0 28px;
+  }
+
+  .customize-nav h2{
+    font-size:28px;
+  }
+
+  .customize-add-doc{
+    font-size:17px;
+    padding:13px 20px;
+  }
+
+  .pdf-preview-card{
+    max-width:430px;
+    min-height:540px;
+  }
+
+  .copies-box{
+    max-width:850px;
+    margin:10px auto 0;
+    padding:24px 28px;
+  }
+
+  .copies-box h3{
+    font-size:26px;
+  }
+}
+
+/* Mobile View */
+@media(max-width:600px){
+
+  .customize-nav{
+    height:68px;
+    padding:0 12px;
+  }
+
+  .customize-close{
+    width:34px;
+    height:34px;
+    font-size:20px;
+  }
+
+  .customize-nav h2{
+    font-size:18px;
+    margin-left:9px;
+  }
+
+  .customize-add-doc{
+    font-size:12px;
+    padding:10px 11px;
+    border-radius:12px;
+  }
+
+  .pdf-preview-section{
+    padding:22px 12px 16px;
+  }
+
+  .pdf-preview-card{
+    max-width:260px;
+    min-height:340px;
+    border-radius:22px;
+    padding:14px;
+  }
+
+  .preview-delete{
+    width:38px;
+    height:38px;
+    font-size:18px;
+    right:-7px;
+    top:-7px;
+  }
+
+  .document-info-pill{
+    bottom:13px;
+    font-size:12px;
+    padding:7px 13px;
+  }
+
+  .copies-box{
+    margin:0 12px;
+    padding:17px;
+    border-radius:22px;
+  }
+
+  .copies-box h3{
+    font-size:18px;
+  }
+
+  .copies-box p{
+    font-size:12px;
+  }
+
+  .copies-counter button{
+    width:38px;
+    height:38px;
+    font-size:24px;
+  }
+
+  .copies-counter span{
+    width:38px;
+    font-size:18px;
+  }
+}
+/* =====================================
+   CUSTOMIZE PRINT EXTRA OPTIONS
+===================================== */
+
+.print-settings-box{
+  background:#fff;
+  margin:0 16px;
+  border-radius:24px;
+  padding:20px;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+}
+
+.copies-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+
+.copies-row h3{
+  font-size:21px;
+  color:#111;
+  margin-bottom:5px;
+}
+
+.copies-row p{
+  font-size:13px;
+  color:#666;
+  line-height:1.4;
+  word-break:break-word;
+}
+
+.print-settings-box hr{
+  border:none;
+  border-top:1px solid #ececec;
+  margin:20px 0;
+}
+
+.print-settings-box h4{
+  font-size:18px;
+  color:#111;
+  margin:18px 0 12px;
+}
+
+.option-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.print-option{
+  border:2px solid #e1e5ee;
+  background:#fff;
+  border-radius:18px;
+  padding:14px 12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-align:left;
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.print-option span{
+  width:34px;
+  height:34px;
+  border-radius:12px;
+  background:#eef4ff;
+  color:#0758ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:19px;
+  flex-shrink:0;
+}
+
+.print-option b{
+  display:block;
+  font-size:15px;
+  color:#111;
+}
+
+.print-option small{
+  display:block;
+  font-size:11px;
+  color:#666;
+  margin-top:2px;
+}
+
+.print-option.active{
+  border-color:#0758ff;
+  background:#eef4ff;
+}
+
+.amount-row{
+  margin-top:22px;
+  padding:16px;
+  border-radius:18px;
+  background:#f4f7ff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.amount-row span{
+  font-size:15px;
+  font-weight:700;
+  color:#333;
+}
+
+.amount-row b{
+  font-size:24px;
+  color:#0758ff;
+}
+
+/* PC */
+@media(min-width:900px){
+
+  .print-settings-box{
+    max-width:850px;
+    margin:10px auto 0;
+    padding:24px 28px;
+  }
+
+  .copies-row h3{
+    font-size:26px;
+  }
+
+  .print-settings-box h4{
+    font-size:21px;
+  }
+
+  .print-option{
+    padding:18px;
+  }
+
+  .print-option b{
+    font-size:18px;
+  }
+
+  .print-option small{
+    font-size:13px;
+  }
+}
+
+/* Mobile */
+@media(max-width:600px){
+
+  .print-settings-box{
+    margin:0 12px;
+    padding:17px;
+    border-radius:22px;
+  }
+
+  .copies-row h3{
+    font-size:18px;
+  }
+
+  .copies-row p{
+    font-size:12px;
+  }
+
+  .print-settings-box h4{
+    font-size:16px;
+  }
+
+  .option-grid{
+    gap:10px;
+  }
+
+  .print-option{
+    padding:12px 9px;
+    border-radius:16px;
+    gap:8px;
+  }
+
+  .print-option span{
+    width:30px;
+    height:30px;
+    font-size:17px;
+  }
+
+  .print-option b{
+    font-size:13px;
+  }
+
+  .print-option small{
+    font-size:10px;
+  }
+
+  .amount-row{
+    padding:14px;
+  }
+
+  .amount-row b{
+    font-size:22px;
+  }
+}
+/* =====================================
+   FINAL BOTTOM BAR POSITION FIX
+===================================== */
+
+.custom-bottom-bar{
+  position:fixed!important;
+  left:0!important;
+  right:0!important;
+  bottom:0!important;
+  transform:none!important;
+  width:100%!important;
+  max-width:none!important;
+  background:#fff!important;
+  padding:12px 16px!important;
+  display:none;
+  align-items:center!important;
+  justify-content:space-between!important;
+  box-shadow:0 -6px 22px rgba(0,0,0,.12)!important;
+  z-index:9999!important;
+}
+
+.customize-page.active .custom-bottom-bar{
+  display:flex!important;
+}
+
+.bottom-price-info{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+}
+
+.bottom-price-info small{
+  font-size:13px!important;
+  color:#333!important;
+  font-weight:600!important;
+}
+
+.bottom-price-info h2{
+  font-size:30px!important;
+  color:#0758ff!important;
+  margin:2px 0 0!important;
+  line-height:1!important;
+  font-weight:900!important;
+}
+
+#addToCartBtn{
+  width:160px!important;
+  height:52px!important;
+  border:none!important;
+  border-radius:15px!important;
+  background:#0758ff!important;
+  color:#fff!important;
+  font-size:17px!important;
+  font-weight:800!important;
+}
+
+/* PC bottom bar */
+@media(min-width:900px){
+
+  .custom-bottom-bar{
+    left:50%!important;
+    right:auto!important;
+    transform:translateX(-50%)!important;
+    max-width:1180px!important;
+    padding:16px 24px!important;
+    border-radius:18px 18px 0 0!important;
+  }
+
+  .bottom-price-info h2{
+    font-size:34px!important;
+  }
+
+  #addToCartBtn{
+    width:230px!important;
+    height:60px!important;
+    font-size:22px!important;
+  }
+}
+
+/* Mobile bottom bar */
+@media(max-width:600px){
+
+  .customize-page{
+    padding-bottom:100px!important;
+  }
+
+  .custom-bottom-bar{
+    padding:12px!important;
+  }
+
+  .bottom-price-info small{
+    font-size:12px!important;
+  }
+
+  .bottom-price-info h2{
+    font-size:28px!important;
+  }
+
+  #addToCartBtn{
+    width:150px!important;
+    height:50px!important;
+    font-size:16px!important;
+  }
+}
+/* =====================================
+   PDF PREVIEW DISPLAY FIX
+===================================== */
+
+.pdf-preview-card{
+  align-items:flex-start!important;
+  justify-content:center!important;
+  overflow:visible!important;
+}
+
+#pdfCanvasPreview{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  background:#fff!important;
+}
+
+@media(max-width:600px){
+
+  .pdf-preview-card{
+    max-width:300px!important;
+    min-height:auto!important;
+    padding:14px!important;
+  }
+
+  #pdfCanvasPreview{
+    min-height:300px;
+  }
+}
+
+@media(min-width:900px){
+
+  .pdf-preview-card{
+    max-width:520px!important;
+    min-height:auto!important;
+    padding:24px!important;
+  }
+
+  #pdfCanvasPreview{
+    max-width:100%!important;
+  }
+}
+/* =====================================
+   FINAL PDF PREVIEW FIX
+===================================== */
+
+#pdfFramePreview{
+  width:100%;
+  height:520px;
+  border:none;
+  display:none;
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+#pdfCanvasPreview{
+  display:none!important;
+}
+
+.pdf-preview-card{
+  align-items:flex-start!important;
+  justify-content:center!important;
+  min-height:auto!important;
+  overflow:visible!important;
+}
+
+@media(max-width:600px){
+
+  #pdfFramePreview{
+    height:470px;
+  }
+
+  .pdf-preview-card{
+    max-width:310px!important;
+    padding:14px!important;
+  }
+}
+
+@media(min-width:900px){
+
+  #pdfFramePreview{
+    height:720px;
+  }
+
+  .pdf-preview-card{
+    max-width:620px!important;
+    padding:24px!important;
+  }
+}
+/* =====================================
+   FINAL BUTTON CUTTING FIX
+   Upload Document + Add documents + Add to Cart
+===================================== */
+
+/* stop right side cutting */
+html,
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden!important;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+/* HOME PAGE UPLOAD DOCUMENT BUTTON */
+.offer{
+  overflow:hidden!important;
+}
+
+.offer .upload{
+  width:auto!important;
+  max-width:240px!important;
+  min-width:0!important;
+  margin:22px auto 0!important;
+  padding:13px 20px!important;
+  display:block!important;
+  text-align:center!important;
+  border-radius:14px!important;
+  font-size:13px!important;
+  line-height:1.2!important;
+}
+
+/* CUSTOMIZE NAVBAR FIX */
+.customize-nav{
+  width:100%!important;
+  max-width:100vw!important;
+  overflow:hidden!important;
+  gap:8px!important;
+}
+
+.customize-close{
+  flex:0 0 auto!important;
+}
+
+.customize-nav h2{
+  flex:1 1 auto!important;
+  min-width:0!important;
+  margin-left:6px!important;
+  font-size:18px!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+
+/* ADD DOCUMENTS BUTTON */
+.customize-add-doc{
+  flex:0 0 auto!important;
+  width:auto!important;
+  max-width:118px!important;
+  padding:9px 9px!important;
+  font-size:11px!important;
+  border-radius:12px!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+
+/* BOTTOM BAR FIX */
+.custom-bottom-bar{
+  width:100%!important;
+  max-width:100vw!important;
+  left:0!important;
+  right:0!important;
+  bottom:0!important;
+  transform:none!important;
+  padding:12px!important;
+  gap:8px!important;
+  overflow:hidden!important;
+}
+
+.bottom-price-info{
+  flex:1 1 auto!important;
+  min-width:0!important;
+}
+
+.bottom-price-info small{
+  display:block!important;
+  font-size:11px!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+
+.bottom-price-info h2{
+  font-size:25px!important;
+  margin-top:2px!important;
+}
+
+/* ADD TO CART BUTTON */
+#addToCartBtn{
+  flex:0 0 auto!important;
+  width:128px!important;
+  min-width:128px!important;
+  max-width:128px!important;
+  height:48px!important;
+  padding:0 8px!important;
+  font-size:14px!important;
+  border-radius:14px!important;
+  white-space:nowrap!important;
+}
+
+/* VERY SMALL MOBILE */
+@media(max-width:380px){
+
+  .offer .upload{
+    max-width:220px!important;
+    padding:12px 16px!important;
+    font-size:12px!important;
+  }
+
+  .customize-nav{
+    padding:0 9px!important;
+    gap:6px!important;
+  }
+
+  .customize-close{
+    width:32px!important;
+    height:32px!important;
+    font-size:18px!important;
+  }
+
+  .customize-nav h2{
+    font-size:15px!important;
+    margin-left:3px!important;
+  }
+
+  .customize-add-doc{
+    max-width:104px!important;
+    padding:8px 7px!important;
+    font-size:10px!important;
+  }
+
+  #addToCartBtn{
+    width:116px!important;
+    min-width:116px!important;
+    max-width:116px!important;
+    height:46px!important;
+    font-size:13px!important;
+  }
+
+  .bottom-price-info h2{
+    font-size:23px!important;
+  }
+
+  .bottom-price-info small{
+    font-size:10px!important;
+  }
+}
+
+/* PC VIEW BUTTONS */
+@media(min-width:900px){
+
+  .offer .upload{
+    max-width:360px!important;
+    padding:17px 24px!important;
+    font-size:18px!important;
+  }
+
+  .customize-nav h2{
+    font-size:28px!important;
+  }
+
+  .customize-add-doc{
+    max-width:180px!important;
+    padding:12px 18px!important;
+    font-size:15px!important;
+  }
+
+  .custom-bottom-bar{
+    left:50%!important;
+    right:auto!important;
+    transform:translateX(-50%)!important;
+    max-width:1180px!important;
+    padding:16px 24px!important;
+  }
+
+  #addToCartBtn{
+    width:220px!important;
+    min-width:220px!important;
+    max-width:220px!important;
+    height:58px!important;
+    font-size:20px!important;
+  }
+}
+/* =====================================
+   LEAVE CUSTOMIZE CONFIRMATION POPUP
+===================================== */
+
+.leave-popup{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100dvh;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  z-index:9999999;
+}
+
+.leave-popup.active{
+  display:flex;
+}
+
+.leave-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  backdrop-filter:blur(2px);
+}
+
+.leave-box{
+  position:relative;
+  width:100%;
+  max-width:360px;
+  background:#fff;
+  border-radius:26px;
+  padding:26px 22px 22px;
+  text-align:center;
+  box-shadow:0 18px 45px rgba(0,0,0,.25);
+  animation:leavePop .25s ease;
+  z-index:2;
+}
+
+@keyframes leavePop{
+  from{
+    opacity:0;
+    transform:scale(.92);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+.leave-box h2{
+  font-size:24px;
+  font-weight:900;
+  color:#111;
+  margin-bottom:8px;
+}
+
+.leave-box p{
+  font-size:14px;
+  color:#666;
+  line-height:1.5;
+  margin-bottom:22px;
+}
+
+.leave-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.leave-actions button{
+  height:48px;
+  border:none;
+  border-radius:15px;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.leave-cancel{
+  background:#eef2f7;
+  color:#111;
+}
+
+.leave-yes{
+  background:#0758ff;
+  color:#fff;
+}
+
+@media(max-width:600px){
+
+  .leave-box{
+    max-width:320px;
+    border-radius:24px;
+    padding:24px 18px 18px;
+  }
+
+  .leave-box h2{
+    font-size:22px;
+  }
+
+  .leave-box p{
+    font-size:13px;
+  }
+
+  .leave-actions button{
+    height:45px;
+    font-size:14px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO PAGE ONLY -->
-<div class="page">
+<div class="app">
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="nav-text">
-            <span>Safe</span>
-            <span class="star">✦</span>
-            <span>Secure</span>
-            <span class="star">✦</span>
-            <span>Instant</span>
-        </div>
-    </nav>
+  <section class="hero">
 
-    <!-- HERO -->
-    <section class="hero">
+    <div class="safe">SAFE ✦ SECURE ✦ INSTANT</div>
 
-        <div class="title-wrap">
-            <h1 class="title">CEZOO Prints</h1>
-            <div class="time-tag">in 4 mins</div>
-        </div>
+    <div class="logi">cezooprints</div>
 
-        <!-- PRINTER IMAGE AREA -->
-        <div class="printer-area">
+    <div class="tag">in 4 mins</div>
 
-            <!-- Keep your printer image in same folder -->
-            <img src="xerox.png.png" alt="CEZOO Printer" class="printer-img">
+    <div class="table"></div>
 
-            <div class="scissor"></div>
+    <div class="scissor">✂️</div>
+    <div class="paper"></div>
 
-            <div class="paper-small">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- BELOW BOX -->
-    <div class="info-card">
-        <div class="free-text">Get your first print free</div>
-
-        <div class="quality">
-            A4 Size Prints <br>
-            75 GSM Paper Quality
-        </div>
-
-     <div class="upload-area">
-    <label for="documentUpload" class="upload-btn">Upload Document</label>
-
-    <input 
-        type="file" 
-        id="documentUpload" 
-        hidden 
-        multiple 
-        accept=".pdf,application/pdf,image/*"
-    >
-
-    <p class="offer-note">
-        *Offer applies to 10 pages of BW or ₹30 max discount on color
-    </p>
-</div>
+    <!-- Insert your printer image here -->
+    <div class="printer-box">
+      <img src="printer.webp" alt="Printer Image">
     </div>
 
-</div>
-<!-- PAGE ENDS HERE -->
+  </section>
 
-<!-- WE PROMISE SECTION -->
-<section class="promise-section">
+  <section class="offer">
+    <h2>Get your first print <span>FREE</span></h2>
 
-    <h2 class="promise-heading">WE PROMISE</h2>
+    <p>• A4 size prints</p>
+    <p>• 75 GSM paper quality</p>
 
-    <div class="promise-art">
+    <input type="file" id="pdfUpload" accept="application/pdf" hidden>
 
-        <div class="promise-note square note-safety">
-            <div class="note-tape"></div>
-            <div class="promise-icon">🛡️</div>
-            <h3>Safety</h3>
-            <p>Documents are deleted once printed!</p>
-        </div>
+<label for="pdfUpload" class="upload">
+  Upload Document
+</label>
 
-        <div class="promise-note square note-security">
-            <div class="promise-icon">🔒</div>
-            <h3>Security</h3>
-            <p>Prints are sealed before delivery</p>
-        </div>
-
-        <div class="deco-scissor">✂</div>
-        <div class="deco-tape-round"></div>
-
-        <div class="deco-photo">
-            <div class="blue-dot"></div>
-        </div>
-
-        <div class="promise-note long">
-            <div class="promise-icon">🙈</div>
-            <h3>No Peek Policy</h3>
-            <p>Our staff will not look at your Documents</p>
-        </div>
-
-        <div class="spark">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-    </div>
-
+<p class="note">*Offer applies to 10 pages of BW or ₹30 max discount on color</p>
 </section>
 
-<!-- FAQ SECTION - ONLY HTML CSS -->
-<section class="faq-section">
 
-    <h2 class="faq-title">FAQ</h2>
-
-    <details class="faq-item">
-        <summary>
-            <span>What Document format can I print?</span>
-        </summary>
-        <p class="faq-answer">
-            You can upload PDF files for documents. For photos, you can upload JPG, PNG, JPEG or WEBP images.
-        </p>
-    </details>
-
-    <details class="faq-item">
-        <summary>
-            <span>What printing options can I choose from?</span>
-        </summary>
-        <p class="faq-answer">
-            You can choose black & white prints, color prints and photo prints based on your document type.
-        </p>
-    </details>
-
-    <details class="faq-item">
-        <summary>
-            <span>How do I upload my documents?</span>
-        </summary>
-        <p class="faq-answer">
-            Click the Upload Document button, select your files, and continue with your print order.
-        </p>
-    </details>
-
-    <details class="faq-item">
-        <summary>
-            <span>Are my documents/photos stored and handled securely?</span>
-        </summary>
-        <p class="faq-answer">
-            Yes. Your files are handled safely and deleted once printing is completed.
-        </p>
-    </details>
-
-    <details class="faq-item">
-        <summary>
-            <span>What is the max number of files/photos I can upload?</span>
-        </summary>
-        <p class="faq-answer">
-            You can upload multiple documents and photos at once. For smooth printing, keep each file clear and properly formatted.
-        </p>
-    </details>
-
-    <details class="faq-item">
-        <summary>
-            <span>I have an issue with my order, what now?</span>
-        </summary>
-        <p class="faq-answer">
-            You can contact support with your order details. Our team will help you with printing, delivery or payment issues.
-        </p>
-    </details>
-
-    <details class="faq-item">
-        <summary>
-            <span>How long does it take to get my order delivered?</span>
-        </summary>
-        <p class="faq-answer">
-            Most print orders are delivered quickly depending on your location, file size and printing options.
-        </p>
-    </details>
-
-</section>
-
-<!-- CERTAIN THINGS SECTION AFTER FAQ -->
-<section class="paper-section">
-
-    <div class="paper-poster">
-
-        <div class="ctrl-box">
-            <div class="key">Ctrl</div>
-            <div class="key">P</div>
-        </div>
-
-        <h2 class="paper-title">
-            Certain things
-            <span>deserve paper!</span>
-        </h2>
-
-        <p class="paper-sub">
-            <span>♥</span> Perfect it with CEZOO Prints
-        </p>
-
-    </div>
-
-</section>
+<!-- Upload Popup -->
 <div class="upload-popup" id="uploadPopup">
 
-    <div class="popup-head">
-        <div>
-            <h4 id="popupTitle">Uploading file...</h4>
-            <p id="popupText">Please wait</p>
-        </div>
+<div class="popup-overlay"></div>
 
-        <button type="button" class="popup-close" id="popupClose">×</button>
-    </div>
+<div class="popup-sheet" id="uploadCard">
 
-    <div class="progress-box">
-        <div class="progress-line" id="progressLine"></div>
-    </div>
+<button class="popup-close" id="cancelUpload">
+✕
+</button>
 
-    <div class="progress-percent" id="progressPercent">0%</div>
+<h2 id="uploadTitle">
+Validating Document
+</h2>
 
-    <button type="button" class="reupload-btn" id="reuploadBtn">
-        Reupload
-    </button>
+<p class="popup-subtitle" id="documentCount">
+1 Document
+</p>
+
+<div class="scanner-area">
+
+<div class="paper-document">
+
+<div class="paper-header"></div>
+
+<div class="paper-line"></div>
+<div class="paper-line short"></div>
+<div class="paper-line"></div>
+<div class="paper-line"></div>
+
+<div class="scanner-bar" id="scannerBar"></div>
 
 </div>
+
+</div>
+
+<div class="progress-wrap">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<div class="progress-percent" id="progressPercent">
+0%
+</div>
+
+<p class="popup-status" id="uploadText">
+Ensuring it's all set to print...
+</p>
+
+<button class="cancel-upload-btn" id="cancelUploadBtn">
+Cancel Upload
+</button>
+
+</div>
+
+</div>
+<!-- Customize Print Page -->
+<section class="customize-page" id="customizePage">
+
+  <!-- Top Navbar -->
+  <header class="customize-nav">
+
+    <button class="customize-close" id="closeCustomize">
+      ✕
+    </button>
+
+    <h2>
+      Customize Print
+    </h2>
+
+    <label for="pdfUpload" class="customize-add-doc">
+      Add documents
+    </label>
+
+  </header>
+
+  <!-- PDF Preview -->
+  <section class="pdf-preview-section">
+
+    <div class="pdf-preview-card">
+
+      <button class="preview-delete" id="deleteUploadedPdf">
+        🗑
+      </button>
+
+      <iframe id="pdfFramePreview"></iframe>
+      <canvas id="pdfCanvasPreview"></canvas>
+
+      <div class="document-info-pill">
+        <span id="docNumberText">Document 1/1</span>
+        .
+        <span id="docPageText">1 Page</span>
+      </div>
+
+    </div>
+    </section>
+
+<!-- Print Settings Box -->
+<section class="print-settings-box">
+
+  <!-- Total Copies -->
+  <div class="copies-row">
+
+    <div>
+      <h3>Total Copies</h3>
+      <p id="customFileName">Uploaded document</p>
+    </div>
+
+    <div class="copies-counter">
+
+      <button id="copyMinus">
+        −
+      </button>
+
+      <span id="copyValue">
+        1
+      </span>
+
+      <button id="copyPlus">
+        +
+      </button>
+
+    </div>
+
+  </div>
+
+  <hr>
+
+  <!-- Orientation -->
+  <h4>Orientation</h4>
+
+  <div class="option-grid">
+
+    <button class="print-option active" id="portraitBtn">
+      <span>📄</span>
+      <div>
+        <b>Portrait</b>
+        <small>11 × 8 inch</small>
+      </div>
+    </button>
+
+    <button class="print-option" id="landscapeBtn">
+      <span>▭</span>
+      <div>
+        <b>Landscape</b>
+        <small>8 × 11 inch</small>
+      </div>
+    </button>
+
+  </div>
+
+  <!-- Color Type -->
+  <h4>Color Type</h4>
+
+  <div class="option-grid">
+
+    <button class="print-option active" id="bwBtn">
+      <span>◐</span>
+      <div>
+        <b>B&W</b>
+        <small>₹3/Page</small>
+      </div>
+    </button>
+
+    <button class="print-option" id="colorBtn">
+      <span>🎨</span>
+      <div>
+        <b>Color</b>
+        <small>₹10/Page</small>
+      </div>
+    </button>
+
+  </div>
+
+</section>
+<!-- Bottom Add To Cart Bar -->
+<footer class="custom-bottom-bar">
+
+  <div class="bottom-price-info">
+
+    <small>
+      <span id="bottomDocCount">1 Document</span>,
+      <span id="bottomPageCount">1 Page</span>
+    </small>
+
+    <h2>
+      ₹<span id="bottomTotalAmount">3</span>
+    </h2>
+
+  </div>
+
+  <button id="addToCartBtn">
+    Add to Cart
+  </button>
+
+</footer>
+
+</section>
+<!-- Leave Customize Confirmation Popup -->
+<div class="leave-popup" id="leavePopup">
+
+  <div class="leave-overlay"></div>
+
+  <div class="leave-box">
+
+    <h2>Are you sure?</h2>
+
+    <p>Your uploaded document and print settings will be removed.</p>
+
+    <div class="leave-actions">
+
+      <button class="leave-cancel" id="leaveCancelBtn">
+        Cancel
+      </button>
+
+      <button class="leave-yes" id="leaveYesBtn">
+        Yes, Leave
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<section class="promise-section">
+
+  <h2 class="promise-title">WE PROMISE</h2>
+
+  <div class="promise-board">
+
+    <div class="sticky-card safety-card">
+      <div class="promise-icon">🛡️</div>
+      <h3>Safety</h3>
+      <p>Documents are deleted once printed.</p>
+      <span class="fold"></span>
+    </div>
+
+    <div class="sticky-card security-card">
+      <div class="promise-icon">🔒</div>
+      <h3>Security</h3>
+      <p>Prints are sealed before delivery.</p>
+    </div>
+
+    <div class="wide-policy-card">
+      <div class="policy-icon">🙈</div>
+      <div>
+        <h3>No Peek Policy</h3>
+        <p>Our staff will not look at your documents.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+  <div class="faq-head">
+    <span>HELP CENTER</span>
+    <h2>FAQ</h2>
+    <p>Common questions about CEZOO Prints.</p>
+  </div>
+
+  <div class="faq-list">
+
+    <details class="faq-item">
+      <summary>What document format can I print?</summary>
+      <p>You can upload PDF, JPG, PNG, Word documents, assignments, resumes and office files.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>What printing options can I choose from?</summary>
+      <p>You can choose black & white, colour print, A4 size, photo print, binding, business cards and labels.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>How do I upload my documents?</summary>
+      <p>Click the Upload Document button, select your file, choose print options and place your order.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Are my documents safe?</summary>
+      <p>Yes. Your documents are handled securely and deleted after printing.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>How fast will my prints be delivered?</summary>
+      <p>CEZOO Prints delivers your printed documents quickly to your doorstep based on your location.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can I order bulk printing?</summary>
+      <p>Yes. You can order bulk prints for offices, schools, colleges, events and business needs.</p>
+    </details>
+
+  </div>
+
+</section>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.js"></script>
+
+
 <script>
-const documentUpload = document.getElementById("documentUpload");
+if(window.pdfjsLib){
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.js";
+}
+
+const pdfUpload = document.getElementById("pdfUpload");
+
 const uploadPopup = document.getElementById("uploadPopup");
-const popupTitle = document.getElementById("popupTitle");
-const popupText = document.getElementById("popupText");
-const progressLine = document.getElementById("progressLine");
+const uploadCard = document.getElementById("uploadCard");
+
+const uploadTitle = document.getElementById("uploadTitle");
+const uploadText = document.getElementById("uploadText");
+
+const progressBar = document.getElementById("progressBar");
 const progressPercent = document.getElementById("progressPercent");
-const popupClose = document.getElementById("popupClose");
-const reuploadBtn = document.getElementById("reuploadBtn");
 
-documentUpload.addEventListener("change", function(){
+const cancelUpload = document.getElementById("cancelUpload");
+const cancelUploadBtn = document.getElementById("cancelUploadBtn");
 
-    const files = Array.from(documentUpload.files);
+const documentCount = document.getElementById("documentCount");
 
-    if(files.length === 0){
-        return;
+const customizePage = document.getElementById("customizePage");
+const closeCustomize = document.getElementById("closeCustomize");
+const deleteUploadedPdf = document.getElementById("deleteUploadedPdf");
+
+const pdfCanvasPreview = document.getElementById("pdfCanvasPreview");
+const pdfFramePreview = document.getElementById("pdfFramePreview");
+let selectedPdfUrl = "";
+
+const docNumberText = document.getElementById("docNumberText");
+const docPageText = document.getElementById("docPageText");
+const customFileName = document.getElementById("customFileName");
+
+const copyMinus = document.getElementById("copyMinus");
+const copyPlus = document.getElementById("copyPlus");
+const copyValue = document.getElementById("copyValue");
+const portraitBtn = document.getElementById("portraitBtn");
+const landscapeBtn = document.getElementById("landscapeBtn");
+
+const bwBtn = document.getElementById("bwBtn");
+const colorBtn = document.getElementById("colorBtn");
+const bottomDocCount = document.getElementById("bottomDocCount");
+const bottomPageCount = document.getElementById("bottomPageCount");
+const bottomTotalAmount = document.getElementById("bottomTotalAmount");
+const addToCartBtn = document.getElementById("addToCartBtn");
+const leavePopup = document.getElementById("leavePopup");
+const leaveCancelBtn = document.getElementById("leaveCancelBtn");
+const leaveYesBtn = document.getElementById("leaveYesBtn");
+
+
+let uploadInterval;
+let scannerInterval;
+
+let selectedPdfFile = null;
+let totalPages = 1;
+let copiesCount = 1;
+let ratePerPage = 3;
+let selectedOrientation = "Portrait";
+let selectedColorType = "B&W";
+function updateCustomizeDetails(){
+
+  copyValue.innerHTML = copiesCount;
+
+  let amount = copiesCount * totalPages * ratePerPage;
+
+  bottomTotalAmount.innerHTML = amount;
+
+  if(selectedPdfFile){
+
+    docNumberText.innerHTML = "Document 1/1";
+
+    docPageText.innerHTML =
+    totalPages + (totalPages === 1 ? " Page" : " Pages");
+
+    customFileName.innerHTML =
+    selectedPdfFile.name + " (" + totalPages + (totalPages === 1 ? " Page)" : " Pages)");
+
+    bottomDocCount.innerHTML = "1 Document";
+
+    bottomPageCount.innerHTML =
+    totalPages + (totalPages === 1 ? " Page" : " Pages");
+
+  }else{
+
+    docNumberText.innerHTML = "Document 0/0";
+    docPageText.innerHTML = "0 Page";
+    customFileName.innerHTML = "No document selected";
+
+    bottomDocCount.innerHTML = "0 Document";
+    bottomPageCount.innerHTML = "0 Page";
+    bottomTotalAmount.innerHTML = 0;
+
+  }
+
+}
+
+/* -----------------------
+   Render PDF First Page
+----------------------- */
+async function renderPdfFirstPage(file){
+
+  if(!file){
+    return;
+  }
+
+  /* Clear old PDF URL */
+  if(selectedPdfUrl){
+    URL.revokeObjectURL(selectedPdfUrl);
+  }
+
+  /* Create preview URL */
+  selectedPdfUrl = URL.createObjectURL(file);
+
+  /* Show PDF preview */
+  pdfFramePreview.src = selectedPdfUrl + "#page=1&toolbar=0&navpanes=0&scrollbar=0";
+  pdfFramePreview.style.display = "block";
+
+  /* Get page count using PDF.js if available */
+  if(window.pdfjsLib){
+
+    try{
+
+      const arrayBuffer = await file.arrayBuffer();
+
+      const pdf = await pdfjsLib.getDocument({
+        data:arrayBuffer
+      }).promise;
+
+      totalPages = pdf.numPages || 1;
+
+    }catch(error){
+
+      totalPages = 1;
+
     }
 
-    const onlyPdf = files.every(function(file){
-        return file.type === "application/pdf" || file.name.toLowerCase().endsWith(".pdf");
-    });
+  }else{
 
-    let percent = 0;
+    totalPages = 1;
 
-    uploadPopup.classList.remove("success", "error");
-    uploadPopup.classList.add("show");
+  }
 
-    popupTitle.textContent = "Uploading file...";
-    popupText.textContent = "Please wait while your file is uploading";
-    progressLine.style.width = "0%";
-    progressPercent.textContent = "0%";
-    reuploadBtn.style.display = "none";
+  updateCustomizeDetails();
 
-    const uploading = setInterval(function(){
+}
+/* -----------------------
+   Hide Home Page
+----------------------- */
+function hideHomePage(){
 
-        percent++;
+  document.querySelector(".hero").style.display = "none";
+  document.querySelector(".offer").style.display = "none";
+  document.querySelector(".promise-section").style.display = "none";
+  document.querySelector(".faq-head").style.display = "none";
+  document.querySelector(".faq-list").style.display = "none";
 
-        progressLine.style.width = percent + "%";
-        progressPercent.textContent = percent + "%";
+}
 
-        if(percent >= 100){
-            clearInterval(uploading);
+/* -----------------------
+   Show Home Page
+----------------------- */
+function showHomePage(){
 
-            if(onlyPdf){
-                uploadPopup.classList.add("success");
-                popupTitle.textContent = "Upload Successfully";
-                popupText.textContent = files.length + " PDF file uploaded successfully";
-                reuploadBtn.style.display = "none";
+  customizePage.classList.remove("active");
 
-                setTimeout(function(){
-                    uploadPopup.classList.remove("show");
-                }, 2500);
+  document.querySelector(".hero").style.display = "block";
+  document.querySelector(".offer").style.display = "block";
+  document.querySelector(".promise-section").style.display = "block";
+  document.querySelector(".faq-head").style.display = "block";
+  document.querySelector(".faq-list").style.display = "flex";
 
-            }else{
-                uploadPopup.classList.add("error");
-                popupTitle.textContent = "Upload Failed";
-                popupText.textContent = "Only PDF files are allowed. Please reupload.";
-                reuploadBtn.style.display = "block";
-            }
-        }
+  selectedPdfFile = null;
+  totalPages = 1;
+  copiesCount = 1;
+  if(selectedPdfUrl){
+  URL.revokeObjectURL(selectedPdfUrl);
+  selectedPdfUrl = "";
+}
 
-    }, 25);
+pdfFramePreview.src = "";
+pdfFramePreview.style.display = "none";
+
+  updateCustomizeDetails();
+
+}
+
+/* -----------------------
+   Show Customize Page
+----------------------- */
+function showCustomizePage(){
+
+  hideHomePage();
+
+  customizePage.classList.add("active");
+
+  updateCustomizeDetails();
+
+  /* Render PDF only after Customize page is visible */
+  if(selectedPdfFile){
+    setTimeout(()=>{
+      renderPdfFirstPage(selectedPdfFile);
+    },100);
+  }
+
+}
+
+/* -----------------------
+   Reset Popup
+----------------------- */
+function resetPopup(){
+
+  clearInterval(uploadInterval);
+  clearInterval(scannerInterval);
+
+  cancelUploadBtn.style.display = "block";
+
+  progressBar.style.width = "0%";
+  progressPercent.innerHTML = "0%";
+
+  uploadTitle.innerHTML = "Validating Document";
+  uploadText.innerHTML = "Ensuring it's all set to print...";
+
+  uploadCard.classList.remove("success");
+
+  document.querySelector(".scanner-area").innerHTML = `
+
+  <div class="paper-document">
+
+    <div class="paper-header"></div>
+
+    <div class="paper-line"></div>
+    <div class="paper-line short"></div>
+    <div class="paper-line"></div>
+    <div class="paper-line"></div>
+
+    <div class="scanner-bar" id="scannerBar"></div>
+
+  </div>
+
+  `;
+
+}
+
+/* -----------------------
+   Cancel Upload
+----------------------- */
+function stopUpload(){
+
+  clearInterval(uploadInterval);
+  clearInterval(scannerInterval);
+
+  uploadPopup.classList.remove("active");
+  document.body.classList.remove("popup-open");
+
+  pdfUpload.value = "";
+
+  resetPopup();
+
+}
+
+cancelUpload.onclick = stopUpload;
+cancelUploadBtn.onclick = stopUpload;
+
+/* -----------------------
+   Upload PDF
+----------------------- */
+pdfUpload.addEventListener("change",function(){
+
+  if(this.files.length === 0){
+    return;
+  }
+
+  const file = this.files[0];
+
+  if(file.type !== "application/pdf"){
+    alert("Only PDF files allowed");
+    this.value = "";
+    return;
+  }
+
+  selectedPdfFile = file;
+totalPages = 1;
+copiesCount = 1;
+ratePerPage = 3;
+selectedOrientation = "Portrait";
+selectedColorType = "B&W";
+
+portraitBtn.classList.add("active");
+landscapeBtn.classList.remove("active");
+
+bwBtn.classList.add("active");
+colorBtn.classList.remove("active");
+
+ updateCustomizeDetails();
+
+/* Do not render here because customize page is still hidden */
+this.value = "";
+
+  resetPopup();
+
+  documentCount.innerHTML = "1 Document";
+
+  uploadPopup.classList.add("active");
+  document.body.classList.add("popup-open");
+
+  let percent = 0;
+
+  let scan = 30;
+  const scanLine = document.getElementById("scannerBar");
+
+  scannerInterval = setInterval(()=>{
+
+    scan += 2;
+
+    scanLine.style.top = scan + "px";
+
+    if(scan > 145){
+      scan = 30;
+    }
+
+  },18);
+
+  uploadInterval = setInterval(()=>{
+
+    percent++;
+
+    progressBar.style.width = percent + "%";
+    progressPercent.innerHTML = percent + "%";
+
+    if(percent >= 100){
+
+      clearInterval(uploadInterval);
+      clearInterval(scannerInterval);
+
+      uploadCard.classList.add("success");
+
+      uploadTitle.innerHTML = "Uploaded Successfully";
+
+      uploadText.innerHTML = "Your document is ready.";
+
+      cancelUploadBtn.style.display = "none";
+
+      document.querySelector(".scanner-area").innerHTML = `
+
+      <div style="
+      width:120px;
+      height:120px;
+      background:#0b6cff;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:62px;
+      color:#fff;
+      margin:auto;
+      animation:pop .4s;
+      ">
+      ✓
+      </div>
+
+      `;
+
+      setTimeout(()=>{
+
+        uploadPopup.classList.remove("active");
+        document.body.classList.remove("popup-open");
+
+        showCustomizePage();
+
+        resetPopup();
+
+      },1800);
+
+    }
+
+  },25);
+
 });
 
-popupClose.addEventListener("click", function(){
-    uploadPopup.classList.remove("show");
-});
+/* -----------------------
+   Copies Counter
+----------------------- */
+copyPlus.onclick = function(){
 
-reuploadBtn.addEventListener("click", function(){
-    documentUpload.value = "";
-    uploadPopup.classList.remove("show");
+  copiesCount++;
+  updateCustomizeDetails();
 
-    setTimeout(function(){
-        documentUpload.click();
-    }, 300);
-});
+};
+
+copyMinus.onclick = function(){
+
+  if(copiesCount > 1){
+    copiesCount--;
+    updateCustomizeDetails();
+  }
+
+};
+
+/* -----------------------
+   Close Customize Page
+----------------------- */
+closeCustomize.onclick = function(){
+
+  leavePopup.classList.add("active");
+
+};
+
+/* -----------------------
+   Delete PDF
+----------------------- */
+deleteUploadedPdf.onclick = function(){
+
+  showHomePage();
+
+};
+/* -----------------------
+   Orientation Buttons
+----------------------- */
+portraitBtn.onclick = function(){
+
+  portraitBtn.classList.add("active");
+  landscapeBtn.classList.remove("active");
+
+  selectedOrientation = "Portrait";
+
+};
+
+landscapeBtn.onclick = function(){
+
+  landscapeBtn.classList.add("active");
+  portraitBtn.classList.remove("active");
+
+  selectedOrientation = "Landscape";
+
+};
+
+/* -----------------------
+   Color Type Buttons
+----------------------- */
+bwBtn.onclick = function(){
+
+  bwBtn.classList.add("active");
+  colorBtn.classList.remove("active");
+
+  selectedColorType = "B&W";
+  ratePerPage = 3;
+
+  updateCustomizeDetails();
+
+};
+
+colorBtn.onclick = function(){
+
+  colorBtn.classList.add("active");
+  bwBtn.classList.remove("active");
+
+  selectedColorType = "Color";
+  ratePerPage = 10;
+
+  updateCustomizeDetails();
+
+};
+addToCartBtn.onclick = function(){
+
+  if(!selectedPdfFile){
+    alert("Please upload a PDF first");
+    return;
+  }
+
+  alert(
+    "Added To Cart\n\n" +
+    "Document: " + selectedPdfFile.name +
+    "\nPages: " + totalPages +
+    "\nCopies: " + copiesCount +
+    "\nColor Type: " + selectedColorType +
+    "\nOrientation: " + selectedOrientation +
+    "\nAmount: ₹" + bottomTotalAmount.innerHTML
+  );
+
+};
+leaveCancelBtn.onclick = function(){
+
+  leavePopup.classList.remove("active");
+
+};
+
+leaveYesBtn.onclick = function(){
+
+  leavePopup.classList.remove("active");
+
+  showHomePage();
+
+};
+
+updateCustomizeDetails();
 </script>
-
 </body>
 </html>
